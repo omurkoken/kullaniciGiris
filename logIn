@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class KullaniciGirisi {
+
+    public static void main(String[] args) {
+        String userName = "kokenomur";
+        String password = "java123";
+        String inpUserName, inpPassword, inputPassword;
+        int select;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Kullanıcı Adınız: ");
+        inpUserName = input.nextLine();
+
+        System.out.print("Şifreniz: ");
+        inpPassword = input.nextLine();
+
+        if (inpUserName.equals("kokenomur") && inpPassword.equals("java123")) {
+            System.out.println("Giriş Başarılı!");
+        } else if (inpUserName.equals(userName) && inpPassword != password) {
+            System.out.println("Hatalı Şifre!");
+            System.out.print("Şifrenizi değiştirmek için 1'e çıkış yapmak için 2'ye basınız: ");
+            select = input.nextInt();
+            if (select == 1) {
+                Scanner girdi = new Scanner(System.in);
+                System.out.print("Lütfen yeni şifrenizi giriniz: ");
+                inputPassword = girdi.nextLine();
+                if (inputPassword.equals(inpPassword)) {
+                    System.out.println("Şifre oluşturulamadı, lütfen başka şifre giriniz");
+                } else if (inputPassword.equals(password)) {    
+                    System.out.println("Şifre oluşturulamadı, lütfen başka şifre giriniz");
+                } else {
+                    System.out.println("Yeni şifre başarıyla oluşturuldu!");
+                }
+            } else if (select == 2) {
+                System.out.println("Çıkış Yapıldı!");
+            }
+
+            else {
+                System.out.println("Hatalı Giriş!");
+            }
+        } else if (inpUserName != userName && inpPassword.equals(password)) {
+            System.out.println("Kullanıcı adı hatalı!");
+
+        } else {
+            System.out.println("Kullanıcı adı ve şifre hatalı!");
+        }
+    }
+}
